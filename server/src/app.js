@@ -4,7 +4,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const { sequelize } = require('./models')
 const config = require('./config/config')
-const routes = require('./routes')
+const userRoutes = require('./routes')
 
 // Initialize app
 const app = express()
@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // Routes
-app.use('/register', routes)
+app.use('/register', userRoutes)
 
 // Start server
 sequelize.sync()
