@@ -15,11 +15,14 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // Routes
-app.use('/', routes)
+app.use('/register', routes)
 
 // Start server
 sequelize.sync()
   .then(() => {
     app.listen(config.port)
     console.log('server started on port ' + config.port)
+  })
+  .catch((error) => {
+    console.log(error)
   })

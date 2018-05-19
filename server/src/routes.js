@@ -1,10 +1,7 @@
 const express = require('express')
+const AuthenticationController = require('./controllers/AuthenticationController')
 const router = express.Router()
 
-router.post('/register', (req, res, next) => {
-  res.send({
-    message: `Hello ${req.body.email}! Your user was registered!`
-  })
-})
+router.post('/', AuthenticationController.register)
 
 module.exports = router
